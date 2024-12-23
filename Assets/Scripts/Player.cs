@@ -19,45 +19,61 @@ public class Player : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-        if (canMove) {
-            vertical = Input.GetAxisRaw("Vertical");
-            horizontal = Input.GetAxisRaw("Horizontal");
-            switch ((int) vertical) {
-                case (-1):
-                    animator.SetBool("WalkDown", true);
-                    animator.SetBool("WalkUp", false);
-                    break;
-                case (1):
-                    animator.SetBool("WalkUp", true);
-                    animator.SetBool("WalkDown", false);
-                    break;
-                default:
-                    animator.SetBool("WalkDown", false);
-                    animator.SetBool("WalkUp", false);
-                    break;
-            }
+	//void FixedUpdate () {
+ //       if (canMove) {
+ //           vertical = Input.GetAxisRaw("Vertical");
+ //           horizontal = Input.GetAxisRaw("Horizontal");
+ //           switch ((int) vertical) {
+ //               case (-1):
+ //                   animator.SetBool("WalkDown", true);
+ //                   animator.SetBool("WalkUp", false);
+ //                   break;
+ //               case (1):
+ //                   animator.SetBool("WalkUp", true);
+ //                   animator.SetBool("WalkDown", false);
+ //                   break;
+ //               default:
+ //                   animator.SetBool("WalkDown", false);
+ //                   animator.SetBool("WalkUp", false);
+ //                   break;
+ //           }
 
-            switch ((int)horizontal) {
-                case (-1):
-                    animator.SetBool("WalkLeft", true);
-                    animator.SetBool("WalkRight", false);
-                    break;
-                case (1):
-                    animator.SetBool("WalkRight", true);
-                    animator.SetBool("WalkLeft", false);
-                    break;
-                default:
-                    animator.SetBool("WalkLeft", false);
-                    animator.SetBool("WalkRight", false);
-                    break;
-            }
+ //           switch ((int)horizontal) {
+ //               case (-1):
+ //                   animator.SetBool("WalkLeft", true);
+ //                   animator.SetBool("WalkRight", false);
+ //                   break;
+ //               case (1):
+ //                   animator.SetBool("WalkRight", true);
+ //                   animator.SetBool("WalkLeft", false);
+ //                   break;
+ //               default:
+ //                   animator.SetBool("WalkLeft", false);
+ //                   animator.SetBool("WalkRight", false);
+ //                   break;
+ //           }
+ //       }
+
+ //       rb.velocity = new Vector2(horizontal, vertical);
+
+ //       if (Input.GetKeyDown("e")) {
+ //           Interact();
+ //       }
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.TryGetComponent(out BattleArena battleArena))
+        {
+            Debug.Log("HasDamage");
         }
+    }
 
-        rb.velocity = new Vector2(horizontal, vertical);
-
-        if (Input.GetKeyDown("e")) {
-            Interact();
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out Shuriken shuriken))
+        {
+            Debug.Log("HasDamage");
         }
     }
 

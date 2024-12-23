@@ -12,6 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/ExampleRoom.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Battle.unity
+    path: Assets/Scenes/BossBattle.unity
     guid: d4e05c5ff72bb3147a0c99d3774da7b2
+  - enabled: 1
+    path: Assets/Scenes/StartGame/StartGame.unity
+    guid: d38b9b6d665775f40a62cc4dae1dce4d
+  - enabled: 1
+    path: Assets/Scenes/Maze.unity
+    guid: a7c6d92f691a10f4491a04022d0c32b5
+  - enabled: 1
+    path: Assets/Scenes/PreBossScene/PreBossCutScene.unity
+    guid: 3e72596cc184cff4883c3e70a65408fe
   m_configObjects: {}
